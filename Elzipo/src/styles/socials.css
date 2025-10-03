@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+ :root {
+  --bg-gradient:  #5225b6;
+  --text-color: #ffffff;
+  --button-border: #8e5fff;
+  --highlight-color: #caa9ff;
+  --font-heading: 'Bebas Neue', sans-serif;
+}
+.socials {
+  display: flex;
+  margin: 5px;
+  font-size: 2rem;
+  position: absolute;
+  z-index: 10;
+  bottom: 0px;
+  font-size: 20px;
+  margin: 50px;
+}
+
+.social-link {
+  color: white;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 10px;
+  font-size: 25px;
+}
