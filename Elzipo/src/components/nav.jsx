@@ -1,19 +1,21 @@
-import '../styles/nav.css';
-import { FaFolderPlus, FaEnvelope, FaUser, FaHome } from 'react-icons/fa';
+import "../styles/nav.css";
+import { FaFolderPlus, FaEnvelope, FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      
-      <a href="#projects" className="nav-item">
+      <Link to="/projects" className="nav-item">
         <FaFolderPlus /> <span>Projects</span>
-      </a>
-      <a href="#about" className="nav-item">
+      </Link>
+
+      <Link to="/about" className="nav-item">
         <FaUser /> <span>About</span>
-      </a>
-      <a href="#contact" className="nav-item">
+      </Link>
+
+      <Link to="/contact" className="nav-item">
         <FaEnvelope /> <span>Contact</span>
-      </a>
+      </Link>
     </nav>
   );
 };
