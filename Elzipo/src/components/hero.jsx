@@ -13,7 +13,8 @@ const Hero = () => {
         <p>Elzipo106@gmail.com</p>
       </div>
 
-      
+      <footer>&copy; copyright reserved {new Date().getFullYear()}
+      </footer>
     </>
   )
 }
