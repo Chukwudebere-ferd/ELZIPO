@@ -1,26 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
- :root {
-  --bg-gradient:  #5225b6;
+
+:root {
+  --bg-gradient: #5225b6;
   --text-color: #ffffff;
   --button-border: #8e5fff;
   --highlight-color: #caa9ff;
   --font-heading: 'Bebas Neue', sans-serif;
 }
+
 .socials {
   display: flex;
-  margin: 5px;
-  font-size: 2rem;
-  position: absolute;
-  z-index: 10;
-  bottom: 0px;
-  font-size: 20px;
-  margin: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  font-size: 25px;
 }
 
 .social-link {
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
   pointer-events: auto;
-  margin-left: 10px;
-  font-size: 25px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+  color: var(--button-border);
+  transform: scale(1.2);
+}
+
+/* RESPONSIVE (MOBILE) */
+@media (max-width: 768px) {
+  .socials {
+    bottom: 10px;
+    gap: 10px;
+    font-size: 22px;
+  }
 }

@@ -1,10 +1,10 @@
 .stack-container {
   text-align: center;
-  margin: 2rem 0;
   color: var(--text-color);
-  position: absolute;
-  bottom: 30px;
-  right: 10px;
+  position: fixed; /* fixed so it stays visible even when scrolling */
+  bottom: 20px;
+  right: 20px;
+  z-index: 15;
 }
 
 .stack-icons {
@@ -17,10 +17,20 @@
 .stack-icons svg {
   transition: transform 0.3s, color 0.3s;
   cursor: pointer;
-  margin: 10px;
+  margin: 8px;
 }
 
 .stack-icons svg:hover {
   transform: scale(1.2);
   color: var(--button-border);
+}
+
+/* RESPONSIVE (MOBILE) */
+@media (max-width: 768px) {
+  .stack-container {
+    position: fixed;
+    bottom: 80px; /* moves up slightly to avoid overlapping socials */
+    right: 10px;
+    font-size: 1.5rem;
+  }
 }

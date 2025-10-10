@@ -32,6 +32,10 @@ body {
   gap: 15px;
   z-index: 20;                   /* ✅ ensures it’s above background + hero */
 }
+.projects-nav {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
 
 /* NAV LINKS */
 .navbar a {
@@ -58,12 +62,27 @@ body {
   margin-left: 6px;
 }
 
-/* RESPONSIVE FIXES */
 @media (max-width: 768px) {
   .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: none;
     flex-direction: row;
-    bottom: 30px;
-    right: 50%;
-    transform: translateX(50%);
+    justify-content: center;
+    align-items: center;
+    background: rgba(82, 37, 182, 0.9); /* subtle background */
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    gap: 10px;
+    z-index: 30;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    padding: 6px 8px;
+    border-radius: 8px;
   }
 }
+

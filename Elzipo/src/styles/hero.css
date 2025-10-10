@@ -15,97 +15,96 @@
 }
 
 body {
+  font-family: var(--font-heading);
   background: var(--bg-gradient);
   color: var(--text-color);
-  font-family: var(--font-heading);
   overflow-x: hidden;
 }
 
-/* MAIN HERO CONTAINER */
 .Main {
   width: 100%;
-  height: 100vh;
-  position: relative;
+  min-height: 100vh;
+  padding: 5rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding-left: 12%;
+  justify-content: center;
+  position: relative;
 }
 
-/* HEADINGS */
 .Main h2 {
   font-size: 2rem;
-  letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
 
 .Main h1 {
-  font-size: 14rem;
-  line-height: 0.9;
-  z-index: 1;
-  margin: 10px 0;
+  font-size: 8vw; /* Scales with screen width */
+  margin-bottom: 1rem;
+  line-height: 1;
 }
 
 .Main p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: 2px solid var(--button-border);
   border-radius: 5px;
-  padding: 8px 15px;
+  padding: 8px 16px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
-/* EMAIL SECTION */
 .email {
   position: absolute;
-  bottom: 59px;
-  left: 12%;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1rem;
-  letter-spacing: 1px;
+  text-align: center;
+  color: var(--highlight-color);
 }
 
-/* RESPONSIVENESS */
-@media (max-width: 1200px) {
-  .Main h1 {
-    font-size: 8rem;
-  }
-  .Main h2 {
-    font-size: 1.8rem;
-  }
-}
+/* ============= Responsive Breakpoints ============= */
 
+/* Tablets */
 @media (max-width: 768px) {
   .Main {
+    padding: 3rem 1.5rem;
     align-items: center;
     text-align: center;
-    padding-left: 0;
   }
-  .Main h1 {
-    font-size: 5rem;
-  }
+
   .Main h2 {
     font-size: 1.5rem;
   }
-  .Main p {
-    font-size: 1.2rem;
-    margin-top: 15px;
+
+  .Main h1 {
+    font-size: 12vw;
   }
-  .email {
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.9rem;
+
+  .Main p {
+    font-size: 1rem;
   }
 }
 
+/* Phones */
 @media (max-width: 480px) {
-  .Main h1 {
-    font-size: 3.5rem;
+  .Main {
+    padding: 2rem 1rem;
   }
+
   .Main h2 {
     font-size: 1.2rem;
   }
+
+  .Main h1 {
+    font-size: 14vw;
+  }
+
   .Main p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 6px 12px;
+  }
+
+  .email {
+    font-size: 0.9rem;
   }
 }
