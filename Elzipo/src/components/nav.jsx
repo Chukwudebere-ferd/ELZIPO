@@ -1,10 +1,13 @@
 import "../styles/nav.css";
-import { FaFolderPlus, FaEnvelope, FaUser } from "react-icons/fa";
+import { FaFolderPlus, FaEnvelope, FaUser,FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
+      <Link to="/" className="nav-item">
+        <FaHome /> <span>home</span>
+      </Link>
       <Link to="/projects" className="nav-item">
         <FaFolderPlus /> <span>Projects</span>
       </Link>

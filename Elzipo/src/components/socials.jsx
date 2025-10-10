@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaWhatsapp, FaTwitter } from "react-icons/fa";
+import { FaWhatsapp, FaTwitter, FaGithub } from "react-icons/fa";
 import '../styles/socials.css'
 
 const Socials = () => {
@@ -21,6 +21,14 @@ const Socials = () => {
         className="social-link"
       >
         <FaTwitter />
+      </a>
+      <a 
+        href="https://github.com/Chukwudebere-ferd" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="social-link"
+      >
+        <FaGithub />
       </a>
     </div>
   );
