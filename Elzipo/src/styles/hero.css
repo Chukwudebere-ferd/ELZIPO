@@ -34,11 +34,11 @@ body {
 
 .Main h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .Main h1 {
-  font-size: 8vw; /* Scales with screen width */
+  font-size: 20rem; /* Scales with screen width */
   margin-bottom: 1rem;
   line-height: 1;
 }
