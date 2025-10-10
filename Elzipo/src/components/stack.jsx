@@ -21,8 +21,6 @@ const Stack = () => {
         <SiFlutter title="Flutter" />
         <FaNodeJs title="Node.js" />
         <SiTypescript title="TypeScript" />
-        <SiMysql title="SQL" />
-        <SiMongodb title="MongoDB" />
       </div>
     </div>
   );
