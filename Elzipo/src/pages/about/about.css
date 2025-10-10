@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+:root {
+  --bg-gradient: #5225b6;
+  --text-color: #ffffff;
+  --button-border: #8e5fff;
+  --highlight-color: #caa9ff;
+  --font-heading: "Bebas Neue", sans-serif;
+}
+
+/* BANNER */
+.about-banner {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the full banner fills nicely */
+  display: block;
+  filter: brightness(0.9);
+}
+
+/* ABOUT CONTENT */
+.about-content {
+  width: 90%;
+  margin: -70px auto 80px auto; /* pulls content slightly upward over banner */
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* PROFILE */
+.profile-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--highlight-color);
+  object-fit: cover;
+  background-color: #000;
+  z-index: 5;
+  margin-bottom: 15px;
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-family: var(--font-heading);
+}
+
+.profile-info .bio {
+  max-width: 750px;
+  margin: 15px auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* SKILLS */
+.skills-section {
+  margin-top: 40px;
+}
+
+.skills-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--highlight-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  border: 1.5px solid var(--button-border);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  background: var(--button-border);
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-banner {
+    height: 200px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
