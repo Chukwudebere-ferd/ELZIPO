@@ -29,6 +29,15 @@ const projectsData = [
     link: "https://vitalearnersfx.vercel.app",
     resources: ["React", "Chart.js", "supabase", "tailwind", "django", "typescript"],
   },
+{
+  id:4,
+  title:"UNIKFITS",
+  image:"https://i.postimg.cc/NfyV0Dmg/Screenshot-2025-11-30-033726.png",
+  description:
+  "UNIKFITS is an e-commerce platform that offers a wide range of clothing and accessories. It features user authentication, product browsing, and a secure checkout process.",
+  link:"https://unikfits.vercel.app",
+  resources:["React","Node.js","Express","MongoDB","CSS3","typescript","tailwind"],
+  },
 ];
 
 const Projects = () => {
