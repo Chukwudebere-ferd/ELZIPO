@@ -1,7 +1,7 @@
 import React from "react";
 import "./about.css";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase, FaPython, FaGitAlt, FaFigma } from "react-icons/fa";
-import { SiFirebase, SiMongodb, SiNextdotjs, SiTailwindcss, SiExpress } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase, FaPython, FaGitAlt, FaFigma, } from "react-icons/fa";
+import { SiFirebase, SiMongodb,  SiTailwindcss, SiExpress, SiFlutter} from "react-icons/si";
 
 export default function About() {
   return (
@@ -40,7 +40,7 @@ export default function About() {
             <div className="skill"><FaCss3Alt /> CSS3</div>
             <div className="skill"><FaJs /> JavaScript</div>
             <div className="skill"><FaReact /> React.js</div>
-            <div className="skill"><SiNextdotjs /> Next.js</div>
+            <div className="skill"><SiFlutter /> Flutter</div>
             <div className="skill"><SiTailwindcss /> Tailwind CSS</div>
             <div className="skill"><FaNodeJs /> Node.js</div>
             <div className="skill"><SiExpress /> Express.js</div>
