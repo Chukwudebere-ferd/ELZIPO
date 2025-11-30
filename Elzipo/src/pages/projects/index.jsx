@@ -23,10 +23,10 @@ const projectsData = [
   {
     id: 3,
     title: "VitaleanersFX",
-    image: "https://i.postimg.cc/kXzVntwn/Screenshot-2025-10-10-015214.png",
+    image: "https://i.postimg.cc/sx0g4mgC/Screenshot-2025-11-30-035252.png",
     description:
       "A smart crypto dashboard where users can sign in to view live prices, trade, and track profits in real-time with simulated authentication.",
-    link: "https://vitalearnersfx.vercel.app",
+    link: "https://vitalearnerspro.vercel.app/",
     resources: ["React", "Chart.js", "supabase", "tailwind", "django", "typescript"],
   },
 {
