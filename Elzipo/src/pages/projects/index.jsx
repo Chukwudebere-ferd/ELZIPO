@@ -38,6 +38,26 @@ const projectsData = [
   link:"https://unikfits.vercel.app",
   resources:["React","Node.js","Express","MongoDB","CSS3","typescript","tailwind"],
   },
+
+  {
+    id: 5,
+    title: "catholic insight andriod app",
+    image: "https://i.postimg.cc/wvn6tvfX/Screenshot-2025-11-30-035938.png",
+    description:
+      "An android app that provides daily catholic insights, prayers, and reflections to help users deepen their faith and stay connected with the catholic community.",
+    link: "https://catholic-insight-webstore.vercel.app/",
+    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite"],
+  },
+
+  {
+    id: 6,
+    title: "schoenstatt andriod app",
+    image: "https://i.postimg.cc/VLR3pvqD/Screenshot-2025-11-30-040314.png",
+    description:
+      "An andriod app that connects schoenstatt  worldwide, fostering community and spiritual growth.",
+    link: "https://schoenstatt-app-store.vercel.app/",
+    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite", "REST API", ],
+  }
 ];
 
 const Projects = () => {
