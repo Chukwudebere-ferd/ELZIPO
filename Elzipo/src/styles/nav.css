@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 :root {
   --bg-gradient: #5225b6;
   --text-color: #ffffff;
   --button-border: #8e5fff;
   --highlight-color: #caa9ff;
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
 }
 
 /* RESET */
@@ -25,12 +25,12 @@ body {
 .navbar {
   display: flex;
   flex-direction: column;
-  position: fixed;                /* ✅ stays visible even on scroll */
+  position: fixed; /* ✅ stays visible even on scroll */
   top: 50%;
   right: 5%;
   transform: translateY(-50%);
   gap: 15px;
-  z-index: 20;                   /* ✅ ensures it’s above background + hero */
+  z-index: 20; /* ✅ ensures it’s above background + hero */
 }
 .projects-nav {
   background: rgba(255, 255, 255, 0.2);
@@ -46,7 +46,9 @@ body {
   text-decoration: none;
   border: 2px solid var(--button-border);
   border-radius: 10px;
-  padding: 6px 10px;
+  padding: 10px 12px;
+  min-height: 44px;
+  min-width: 44px;
   font-size: 18px;
   transition: all 0.3s ease;
 }
@@ -62,6 +64,7 @@ body {
   margin-left: 6px;
 }
 
+/* Tablets */
 @media (max-width: 768px) {
   .navbar {
     position: fixed;
@@ -72,17 +75,52 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: rgba(82, 37, 182, 0.9); /* subtle background */
+    background: rgba(82, 37, 182, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 0;
-    gap: 10px;
+    padding: 12px 0;
+    padding-top: max(12px, env(safe-area-inset-top));
+    gap: 12px;
     z-index: 30;
   }
 
   .navbar a {
     font-size: 16px;
-    padding: 6px 8px;
+    padding: 10px 12px;
     border-radius: 8px;
+    min-height: 44px;
   }
 }
 
+/* Mobile - Icon Only */
+@media (max-width: 480px) {
+  .navbar {
+    gap: 8px;
+    padding: 10px 0;
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+
+  .navbar a {
+    font-size: 20px;
+    padding: 12px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .navbar span {
+    display: none;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 375px) {
+  .navbar {
+    gap: 6px;
+  }
+
+  .navbar a {
+    font-size: 18px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

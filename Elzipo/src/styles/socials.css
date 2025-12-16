@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 :root {
   --bg-gradient: #5225b6;
   --text-color: #ffffff;
   --button-border: #8e5fff;
   --highlight-color: #caa9ff;
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
 }
 
 .socials {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
-  font-size: 25px;
+  font-size: 28px;
 }
 
 .social-link {
@@ -26,6 +26,12 @@
   cursor: pointer;
   pointer-events: auto;
   transition: color 0.3s, transform 0.3s;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link:hover {
@@ -35,6 +41,27 @@
 
 /* RESPONSIVE (MOBILE) */
 @media (max-width: 768px) {
+  .socials {
+    bottom: 15px;
+    gap: 15px;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .socials {
+    bottom: 12px;
+    gap: 12px;
+    font-size: 24px;
+  }
+
+  .social-link {
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 375px) {
   .socials {
     bottom: 10px;
     gap: 10px;

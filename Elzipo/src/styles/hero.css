@@ -24,7 +24,7 @@ body {
 .Main {
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 8rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -33,18 +33,19 @@ body {
 }
 
 .Main h2 {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   margin-bottom: 0;
 }
 
 .Main h1 {
-  font-size: 20rem; /* Scales with screen width */
+  font-size: clamp(4rem, 20vw, 20rem);
   margin-bottom: 1rem;
-  line-height: 1;
+  line-height: 0.9;
+  word-break: break-word;
 }
 
 .Main p {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   border: 2px solid var(--button-border);
   border-radius: 5px;
   padding: 8px 16px;
@@ -54,57 +55,91 @@ body {
 
 .email {
   position: absolute;
-  bottom: 30px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   text-align: center;
   color: var(--highlight-color);
+  width: 100%;
+  padding: 0 1rem;
+  word-break: break-word;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  color: var(--text-color);
+  opacity: 0.7;
+  z-index: 10;
 }
 
 /* ============= Responsive Breakpoints ============= */
 
+/* Large Tablets and Small Desktops */
+@media (max-width: 1024px) {
+  .Main {
+    padding: 4rem 2rem 8rem 2rem;
+  }
+}
+
 /* Tablets */
 @media (max-width: 768px) {
   .Main {
-    padding: 3rem 1.5rem;
+    padding: 6rem 1.5rem 8rem 1.5rem;
     align-items: center;
     text-align: center;
   }
 
-  .Main h2 {
-    font-size: 1.5rem;
-  }
-
   .Main h1 {
-    font-size: 12vw;
+    line-height: 0.85;
   }
 
-  .Main p {
-    font-size: 1rem;
+  .email {
+    bottom: 70px;
   }
 }
 
-/* Phones */
+/* Large Phones */
 @media (max-width: 480px) {
   .Main {
-    padding: 2rem 1rem;
-  }
-
-  .Main h2 {
-    font-size: 1.2rem;
+    padding: 5rem 1rem 7rem 1rem;
   }
 
   .Main h1 {
-    font-size: 14vw;
+    line-height: 0.8;
   }
 
   .Main p {
-    font-size: 0.9rem;
     padding: 6px 12px;
   }
 
   .email {
-    font-size: 0.9rem;
+    bottom: 60px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 375px) {
+  .Main {
+    padding: 4.5rem 0.75rem 6.5rem 0.75rem;
+  }
+
+  .Main h2 {
+    font-size: 1rem;
+  }
+
+  .Main p {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .email {
+    bottom: 55px;
+    font-size: 0.8rem;
   }
 }

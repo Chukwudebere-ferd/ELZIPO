@@ -3,7 +3,7 @@
   --text-color: #ffffff;
   --button-border: #8e5fff;
   --highlight-color: #caa9ff;
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
 }
 
 * {
@@ -33,12 +33,36 @@ body {
 
 /* Animations */
 @keyframes fly {
-  0%   { top: 10%; left: 10%; opacity: 1; }
-  20%  { top: 30%; left: 40%; opacity: 0.7; }
-  40%  { top: 40%; left: 60%; opacity: 0; }
-  60%  { top: 30%; left: 20%; opacity: 0.8; }
-  80%  { top: 50%; left: 59%; opacity: 1; }
-  100% { top: 10%; left: 80%; opacity: 1; }
+  0% {
+    top: 10%;
+    left: 10%;
+    opacity: 1;
+  }
+  20% {
+    top: 30%;
+    left: 40%;
+    opacity: 0.7;
+  }
+  40% {
+    top: 40%;
+    left: 60%;
+    opacity: 0;
+  }
+  60% {
+    top: 30%;
+    left: 20%;
+    opacity: 0.8;
+  }
+  80% {
+    top: 50%;
+    left: 59%;
+    opacity: 1;
+  }
+  100% {
+    top: 10%;
+    left: 80%;
+    opacity: 1;
+  }
 }
 
 .backgroundPlane::after {
@@ -55,11 +79,26 @@ body {
 }
 
 @keyframes moveAround {
-  0%   { top: 0; left: 0; }
-  25%  { top: 0; left: calc(100% - 80px); }
-  50%  { top: calc(10% - 50px); left: calc(100% - 50px); }
-  75%  { top: calc(50% - 150px); left: 50px; } /* fixed syntax */
-  100% { top: 0; left: 0; }
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 80px);
+  }
+  50% {
+    top: calc(10% - 50px);
+    left: calc(100% - 50px);
+  }
+  75% {
+    top: calc(50% - 150px);
+    left: 50px;
+  } /* fixed syntax */
+  100% {
+    top: 0;
+    left: 0;
+  }
 }
 
 .backgroundPlane::before {
@@ -70,17 +109,46 @@ body {
   top: 20px;
   left: 20px;
   background-color: var(--button-border);
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
   animation: moveAround 20s infinite linear;
   opacity: 0.6;
 }
 
 @keyframes fly1 {
-  0%   { top: 10%; left: 5%; opacity: 1; }
-  25%  { top: 30%; left: 80%; opacity: 0.6; }
-  50%  { top: 70%; left: 60%; opacity: 0; }
-  75%  { top: 40%; left: 20%; opacity: 1; }
-  100% { top: 10%; left: 5%; opacity: 1; }
+  0% {
+    top: 10%;
+    left: 5%;
+    opacity: 1;
+  }
+  25% {
+    top: 30%;
+    left: 80%;
+    opacity: 0.6;
+  }
+  50% {
+    top: 70%;
+    left: 60%;
+    opacity: 0;
+  }
+  75% {
+    top: 40%;
+    left: 20%;
+    opacity: 1;
+  }
+  100% {
+    top: 10%;
+    left: 5%;
+    opacity: 1;
+  }
 }
 
 .backgroundPlane2::before {
@@ -97,11 +165,31 @@ body {
 }
 
 @keyframes fly2 {
-  0%   { top: 50%; left: 0; opacity: 1; }
-  20%  { top: 10%; left: 40%; opacity: 0.5; }
-  40%  { top: 80%; left: 60%; opacity: 0.9; }
-  70%  { top: 40%; left: 100%; opacity: 0; }
-  100% { top: 50%; left: 0; opacity: 1; }
+  0% {
+    top: 50%;
+    left: 0;
+    opacity: 1;
+  }
+  20% {
+    top: 10%;
+    left: 40%;
+    opacity: 0.5;
+  }
+  40% {
+    top: 80%;
+    left: 60%;
+    opacity: 0.9;
+  }
+  70% {
+    top: 40%;
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    left: 0;
+    opacity: 1;
+  }
 }
 
 .backgroundPlane2::after {
@@ -112,7 +200,53 @@ body {
   top: 20px;
   left: 20px;
   background-color: var(--button-border);
-  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  clip-path: polygon(
+    0% 15%,
+    15% 15%,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    100% 85%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    15% 85%,
+    0% 85%
+  );
   animation: fly2 20s infinite linear;
   opacity: 0.6;
+}
+
+/* RESPONSIVE - Scale down animations on smaller screens */
+@media (max-width: 768px) {
+  .backgroundPlane::after,
+  .backgroundPlane::before,
+  .backgroundPlane2::before,
+  .backgroundPlane2::after {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .backgroundPlane::after,
+  .backgroundPlane::before,
+  .backgroundPlane2::before,
+  .backgroundPlane2::after {
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+  }
+}
+
+/* Accessibility - Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .backgroundPlane::after,
+  .backgroundPlane::before,
+  .backgroundPlane2::before,
+  .backgroundPlane2::after {
+    animation: none;
+    opacity: 0.3;
+  }
 }

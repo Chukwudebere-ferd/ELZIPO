@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 :root {
   --bg-primary: linear-gradient(135deg, #5225b6, #1f43d5);
@@ -6,7 +6,7 @@
   --accent-hover: #a97fff;
   --text-light: #ffffff;
   --text-muted: #d1cfe2;
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
 }
 
 /* CONTACT SECTION */
@@ -40,7 +40,7 @@
 
 /* TITLES */
 .contact-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-family: var(--font-heading);
   letter-spacing: 1px;
   margin-bottom: 0.3rem;
@@ -48,12 +48,13 @@
 }
 
 .contact-subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-muted);
   margin-bottom: 2.5rem;
   max-width: 500px;
   line-height: 1.6;
   z-index: 2;
+  padding: 0 1rem;
 }
 
 /* FORM */
@@ -66,15 +67,22 @@
   z-index: 2;
 }
 
+.contact-form label {
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: -0.8rem;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 1rem 1.2rem;
+  min-height: 48px;
   border-radius: 8px;
   border: none;
   background: rgba(255, 255, 255, 0.95);
   color: #000;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-family: sans-serif;
   transition: all 0.3s ease;
 }
@@ -87,17 +95,19 @@
 
 .contact-form textarea {
   height: 160px;
-  resize: none;
+  resize: vertical;
+  min-height: 120px;
 }
 
 /* BUTTON */
 .contact-form button {
   background: var(--accent);
   color: var(--text-light);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-family: var(--font-heading);
   letter-spacing: 1px;
   padding: 0.9rem;
+  min-height: 48px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -107,6 +117,11 @@
 .contact-form button:hover {
   background: var(--accent-hover);
   transform: translateY(-2px) scale(1.03);
+}
+
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* SUCCESS STATE */
@@ -124,21 +139,65 @@
 
 .thank-you h2 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .contact-title {
-    font-size: 2.2rem;
-  }
+.thank-you p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
 
-  .contact-subtitle {
-    font-size: 1rem;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 6rem 1.5rem 4rem 1.5rem;
   }
 
   .contact-form {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 5rem 1rem 3rem 1rem;
+  }
+
+  .contact-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.9rem 1rem;
+  }
+
+  .contact-form textarea {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4.5rem 0.75rem 2.5rem 0.75rem;
+  }
+
+  .contact-form button {
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 375px) {
+  .contact-section {
+    padding: 4rem 0.5rem 2rem 0.5rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem 0.9rem;
   }
 }
