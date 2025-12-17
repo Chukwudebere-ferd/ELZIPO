@@ -14,7 +14,7 @@
   align-items: center;
   gap: 20px;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
@@ -42,7 +42,7 @@
 /* RESPONSIVE (MOBILE) */
 @media (max-width: 768px) {
   .socials {
-    bottom: 15px;
+    bottom: 55px;
     gap: 15px;
     font-size: 26px;
   }
@@ -50,7 +50,7 @@
 
 @media (max-width: 480px) {
   .socials {
-    bottom: 12px;
+    bottom: 50px;
     gap: 12px;
     font-size: 24px;
   }
@@ -63,7 +63,7 @@
 
 @media (max-width: 375px) {
   .socials {
-    bottom: 10px;
+    bottom: 45px;
     gap: 10px;
     font-size: 22px;
   }

@@ -2,7 +2,7 @@
   text-align: center;
   color: var(--text-color);
   position: fixed;
-  bottom: 80px;
+  bottom: 130px;
   right: 20px;
   z-index: 15;
 }
@@ -35,7 +35,7 @@
 @media (max-width: 768px) {
   .stack-container {
     position: fixed;
-    bottom: 70px;
+    bottom: 120px;
     right: 15px;
   }
 
@@ -52,7 +52,7 @@
 
 @media (max-width: 480px) {
   .stack-container {
-    bottom: 65px;
+    bottom: 115px;
     right: 10px;
   }
 
@@ -69,7 +69,7 @@
 
 @media (max-width: 375px) {
   .stack-container {
-    bottom: 60px;
+    bottom: 110px;
     right: 8px;
   }
 
