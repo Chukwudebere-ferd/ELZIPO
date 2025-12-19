@@ -57,6 +57,16 @@ const projectsData = [
       "An andriod app that connects schoenstatt  worldwide, fostering community and spiritual growth.",
     link: "https://schoenstatt-app-store.vercel.app/",
     resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite", "REST API", ],
+  },
+
+  {
+    id: 7,
+    title: "ebanner",
+    image: "https://i.postimg.cc/j2jpmwms/Screenshot-2025-12-19-025149.png",
+    description:
+      "This project is a web application that allows users to generate personalized portfolio banners.",
+    link: "https://ebanner.vercel.app/",
+    resources: ["react","nodejs/express", "REST API", "puter" ],
   }
 ];
 
