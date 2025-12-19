@@ -1,6 +1,8 @@
-import React from 'react';
-import './projects.css';
+import React, { useState, useEffect } from "react";
+import "./projects.css";
+import { getAllProjects } from "../../services/projectService";
 
+// Fallback data for initial load or if Firebase fails
 const projectsData = [
   {
     id: 1,
@@ -18,7 +20,14 @@ const projectsData = [
     description:
       "This global site offers extensive content, including a 'Youth' section that highlights international activities, events, and initiatives.",
     link: "https://www.schoenstattvictoriousyouth.com",
-    resources: ["React", "Blogger API", "Firebase", "Custom CSS", "mongodb", "typescript"],
+    resources: [
+      "React",
+      "Blogger API",
+      "Firebase",
+      "Custom CSS",
+      "mongodb",
+      "typescript",
+    ],
   },
   {
     id: 3,
@@ -27,16 +36,31 @@ const projectsData = [
     description:
       "A smart crypto dashboard where users can sign in to view live prices, trade, and track profits in real-time with simulated authentication.",
     link: "https://vitalearnerspro.vercel.app/",
-    resources: ["React", "Chart.js", "supabase", "tailwind", "django", "typescript"],
+    resources: [
+      "React",
+      "Chart.js",
+      "supabase",
+      "tailwind",
+      "django",
+      "typescript",
+    ],
   },
-{
-  id:4,
-  title:"UNIKFITS",
-  image:"https://i.postimg.cc/NfyV0Dmg/Screenshot-2025-11-30-033726.png",
-  description:
-  "UNIKFITS is an e-commerce platform that offers a wide range of clothing and accessories. It features user authentication, product browsing, and a secure checkout process.",
-  link:"https://unikfits.vercel.app",
-  resources:["React","Node.js","Express","MongoDB","CSS3","typescript","tailwind"],
+  {
+    id: 4,
+    title: "UNIKFITS",
+    image: "https://i.postimg.cc/NfyV0Dmg/Screenshot-2025-11-30-033726.png",
+    description:
+      "UNIKFITS is an e-commerce platform that offers a wide range of clothing and accessories. It features user authentication, product browsing, and a secure checkout process.",
+    link: "https://unikfits.vercel.app",
+    resources: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "CSS3",
+      "typescript",
+      "tailwind",
+    ],
   },
 
   {
@@ -56,7 +80,7 @@ const projectsData = [
     description:
       "An andriod app that connects schoenstatt  worldwide, fostering community and spiritual growth.",
     link: "https://schoenstatt-app-store.vercel.app/",
-    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite", "REST API", ],
+    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite", "REST API"],
   },
 
   {
@@ -66,45 +90,84 @@ const projectsData = [
     description:
       "This project is a web application that allows users to generate personalized portfolio banners.",
     link: "https://ebanner.vercel.app/",
-    resources: ["react","nodejs/express", "REST API", "puter" ],
-  }
+    resources: ["react", "nodejs/express", "REST API", "puter"],
+  },
 ];
 
 const Projects = () => {
+  const [projects, setProjects] = useState(projectsData);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const firebaseProjects = await getAllProjects();
+        // Merge Firebase projects with static fallback data (Firebase first, then fallback)
+        if (firebaseProjects && firebaseProjects.length > 0) {
+          // Show Firebase projects + keep fallback data that don't have Firebase versions
+          setProjects([...firebaseProjects, ...projectsData]);
+        } else {
+          // No Firebase projects, use fallback
+          setProjects(projectsData);
+        }
+      } catch (err) {
+        console.error("Error loading projects from Firebase:", err);
+        // Silently fail and use fallback data
+        setProjects(projectsData);
+        setError(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <>
-    <div className="page projects-page">
-  <div className="projects-page">
-      <h1 className="projects-title">My Projects</h1>
+      <div className="page projects-page">
+        <div className="projects-page">
+          <h1 className="projects-title">My Projects</h1>
 
-      <div className="projects-grid">
-        {projectsData.map((project) => (
-          <div className="project-card" key={project.id}>
-            <img src={project.image} alt={project.title} className="project-img" />
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
+          {loading && <p className="loading-text">Loading projects...</p>}
 
-            <div className="resources">
-              <h4>Resources Used:</h4>
-              <ul>
-                {project.resources.map((tool, index) => (
-                  <li key={index}>{tool}</li>
-                ))}
-              </ul>
-            </div>
+          {error && (
+            <p className="error-text">Error loading projects: {error}</p>
+          )}
 
-            <button onClick={() => window.open(project.link, "_blank")}>
-              View
-            </button>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div className="project-card" key={project.id}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-img"
+                />
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+
+                <div className="resources">
+                  <h4>Resources Used:</h4>
+                  <ul>
+                    {Array.isArray(project.resources)
+                      ? project.resources.map((tool, index) => (
+                          <li key={index}>{tool}</li>
+                        ))
+                      : null}
+                  </ul>
+                </div>
+
+                <button onClick={() => window.open(project.link, "_blank")}>
+                  View
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-    
-</div>
-
-    
-</>
+    </>
   );
 };
 
