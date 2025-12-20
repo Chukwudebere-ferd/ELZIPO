@@ -4,7 +4,8 @@
   position: fixed;
   bottom: 130px;
   right: 20px;
-  z-index: 15;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .stack-container h2 {
@@ -19,6 +20,7 @@
   gap: 8px;
   max-width: 200px;
   font-size: 1.8rem;
+  pointer-events: auto;
 }
 
 .stack-icons svg {
