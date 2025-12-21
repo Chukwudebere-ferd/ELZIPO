@@ -5,12 +5,12 @@ import { getStorage } from "firebase/storage";
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBc0SJi8IRwZsOuuejiVtWGYiL7O8wBl7U",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "elzipo-ff8fc.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "elzipo-ff8fc",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "elzipo-ff8fc.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "789472771008",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:789472771008:web:1d3a1461a3d2c6fcf4a625",
+  apiKey: "AIzaSyBc0SJi8IRwZsOuuejiVtWGYiL7O8wBl7U",
+  authDomain: "elzipo-ff8fc.firebaseapp.com",
+  projectId: "elzipo-ff8fc",
+  storageBucket: "elzipo-ff8fc.firebasestorage.app",
+  messagingSenderId: "789472771008",
+  appId: "1:789472771008:web:1d3a1461a3d2c6fcf4a625"
 };
 
 // Debug: Log if env vars are loaded (remove in production)
