@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "elzipo-ff8fc",
   storageBucket: "elzipo-ff8fc.firebasestorage.app",
   messagingSenderId: "789472771008",
-  appId: "1:789472771008:web:1d3a1461a3d2c6fcf4a625"
+  appId: "1:789472771008:web:1d3a1461a3d2c6fcf4a625",
 };
 
 // Debug: Log if env vars are loaded (remove in production)

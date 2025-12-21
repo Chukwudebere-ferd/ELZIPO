@@ -1,8 +1,11 @@
 // Upload image to Cloudinary
 export const uploadImageToCloudinary = async (file) => {
-  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "dorx9mmpv";
-  const uploadPreset =
-    import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "unsigned_preset";
+  const cloudName = (
+    import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "dorx9mmpv"
+  ).trim();
+  const uploadPreset = (
+    import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "unsigned_preset"
+  ).trim();
 
   console.log(
     "Cloudinary config:",
