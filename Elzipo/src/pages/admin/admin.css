@@ -243,6 +243,36 @@
   transition: border-color 0.3s;
 }
 
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  flex: 1;
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.password-toggle:hover {
+  color: var(--highlight-color, #caa9ff);
+}
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group input[type="file"]:focus {
