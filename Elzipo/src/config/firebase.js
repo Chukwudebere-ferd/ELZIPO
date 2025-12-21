@@ -16,7 +16,10 @@ const firebaseConfig = {
 // Debug: Log if env vars are loaded (remove in production)
 if (!firebaseConfig.apiKey) {
   console.error("Firebase config error: VITE_FIREBASE_API_KEY is not set!");
-  console.log("Available env keys:", Object.keys(import.meta.env).filter(k => k.includes('FIREBASE')));
+  console.log(
+    "Available env keys:",
+    Object.keys(import.meta.env).filter((k) => k.includes("FIREBASE"))
+  );
 }
 
 // Initialize Firebase
