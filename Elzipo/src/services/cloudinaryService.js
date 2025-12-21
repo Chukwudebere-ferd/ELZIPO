@@ -1,7 +1,7 @@
 // Upload image to Cloudinary
 export const uploadImageToCloudinary = async (file) => {
   const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "dorx9mmpv";
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "portfolio_upload";
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "unsigned_preset";
 
   if (!cloudName || !uploadPreset) {
     throw new Error("Cloudinary configuration is missing");
