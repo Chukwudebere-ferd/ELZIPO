@@ -1,7 +1,7 @@
 // Upload image to Cloudinary
 export const uploadImageToCloudinary = async (file) => {
-  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "dorx9mmpv";
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "portfolio_upload";
 
   if (!cloudName || !uploadPreset) {
     throw new Error("Cloudinary configuration is missing");
@@ -21,7 +21,11 @@ export const uploadImageToCloudinary = async (file) => {
     );
 
     if (!response.ok) {
-      throw new Error("Image upload failed");
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Cloudinary error response:", errorData);
+      throw new Error(
+        errorData.error?.message || `Upload failed with status ${response.status}`
+      );
     }
 
     const data = await response.json();
