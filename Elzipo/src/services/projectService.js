@@ -71,14 +71,19 @@ export const updateProject = async (projectId, projectData, imageFile) => {
       imageUrl = await uploadImageToCloudinary(imageFile);
     }
 
-    const projectRef = doc(db, PROJECT_COLLECTION, projectId);
-    await updateDoc(projectRef, {
+    const updateData = {
       ...projectData,
-      image: imageUrl,
       updatedAt: new Date(),
-    });
+    };
 
-    return { id: projectId, ...projectData, image: imageUrl };
+    if (imageUrl !== undefined) {
+      updateData.image = imageUrl;
+    }
+
+    const projectRef = doc(db, PROJECT_COLLECTION, projectId);
+    await updateDoc(projectRef, updateData);
+
+    return { id: projectId, ...updateData };
   } catch (error) {
     console.error("Error updating project:", error);
     throw error;
