@@ -2,7 +2,7 @@
   text-align: center;
   color: var(--text-color);
   position: fixed;
-  bottom: 130px;
+  bottom: 10px;
   right: 20px;
   z-index: 1;
   pointer-events: none;
@@ -21,6 +21,7 @@
   max-width: 200px;
   font-size: 1.8rem;
   pointer-events: auto;
+  
 }
 
 .stack-icons svg {
