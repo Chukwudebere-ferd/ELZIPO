@@ -32,14 +32,6 @@ function AppContent() {
       </Routes>
 
       {!isAdminRoute && <Background />}
-
-      {/* 👇 Only display on Home page */}
-      {location.pathname === "/" && (
-        <>
-          <Socials />
-          <Stack />
-        </>
-      )}
     </>
   );
 }

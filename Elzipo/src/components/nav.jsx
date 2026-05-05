@@ -4,15 +4,19 @@ import "../styles/nav.css";
 
 const Navbar = () => {
   const location = useLocation();
-  const isProjects = location.pathname === "/projects";
 
   return (
-    <nav className={`navbar ${isProjects ? "projects-nav" : ""}`}>
-      <Link to="/" className="nav-item"><FaHome /> <span>Home</span></Link>
-      <Link to="/projects" className="nav-item"><FaFolderPlus /> <span>Projects</span></Link>
-      <Link to="/about" className="nav-item"><FaUser /> <span>About</span></Link>
-      <Link to="/contact" className="nav-item"><FaEnvelope /> <span>Contact</span></Link>
-    </nav>
+    <header className="nav-header">
+      <nav className="nav-minimal main-container">
+        <Link to="/" className="nav-brand">ELZIPO</Link>
+        <div className="nav-links-minimal">
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>HOME</Link>
+          <Link to="/projects" className={location.pathname === "/projects" ? "active" : ""}>PROJECTS</Link>
+          <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>ABOUT</Link>
+          <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>CONTACT</Link>
+        </div>
+      </nav>
+    </header>
   );
 };
 

@@ -15,36 +15,50 @@ export default function Contact() {
   }
 
   return (
-    <section className="contact-section">
-      <h2 className="contact-title">Get in Touch</h2>
-      <p className="contact-subtitle">
-        Feel free to reach out for collaborations, projects, or just a friendly chat.
-      </p>
+    <div className="page contact-minimal main-container">
+      <header className="contact-header-minimal fade-in-up">
+        <p className="label">Get In Touch</p>
+        <h1 className="contact-title-serif">Let's work <br /> together.</h1>
+      </header>
 
-      <form onSubmit={handleSubmit} className="contact-form">
-        <label htmlFor="email">Your Email</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          placeholder="example@email.com"
-          required
-        />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
+      <section className="contact-content-minimal fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <form onSubmit={handleSubmit} className="contact-form-minimal">
+          <div className="form-group-minimal">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="YOUR EMAIL"
+              required
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+          </div>
 
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Write your message here..."
-          required
-        ></textarea>
-        <ValidationError prefix="Message" field="message" errors={state.errors} />
+          <div className="form-group-minimal">
+            <textarea
+              id="message"
+              name="message"
+              placeholder="YOUR MESSAGE"
+              rows="4"
+              required
+            ></textarea>
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+          </div>
 
-        <button type="submit" disabled={state.submitting}>
-          {state.submitting ? "Sending..." : "Send Message"}
-        </button>
-      </form>
-    </section>
+          <button type="submit" className="submit-btn-minimal" disabled={state.submitting}>
+            {state.submitting ? "SENDING..." : "SEND MESSAGE →"}
+          </button>
+        </form>
+      </section>
+
+      <footer className="contact-footer-minimal fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <p className="muted">ELZIPO106@GMAIL.COM</p>
+        <div className="social-links-minimal">
+          <a href="https://github.com/Chukwudebere-ferd" target="_blank" rel="noopener noreferrer">GITHUB</a>
+          <a href="https://x.com/elzipoferd" target="_blank" rel="noopener noreferrer">TWITTER</a>
+          <a href="https://wa.me/2349047594112" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
+        </div>
+      </footer>
+    </div>
   );
 }

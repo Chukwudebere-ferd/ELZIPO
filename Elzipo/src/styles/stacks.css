@@ -1,83 +1,58 @@
-.stack-container {
+.stack-section {
+  padding: 4rem 2rem;
   text-align: center;
-  color: var(--text-color);
-  position: fixed;
-  bottom: 10px;
-  right: 20px;
-  z-index: 1;
-  pointer-events: none;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.stack-container h2 {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: 8px;
+.stack-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
 }
 
-.stack-icons {
+.stack-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
-  max-width: 200px;
-  font-size: 1.8rem;
-  pointer-events: auto;
-  
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.stack-icons svg {
-  transition: transform 0.3s, color 0.3s;
-  cursor: pointer;
+.stack-icon-wrapper {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
 }
 
-.stack-icons svg:hover {
-  transform: scale(1.2);
-  color: var(--button-border);
+.stack-icon-wrapper:hover {
+  color: var(--accent);
+  transform: translateY(-8px) scale(1.1);
+  background: rgba(124, 58, 237, 0.05);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px -5px var(--accent-glow);
 }
 
-/* RESPONSIVE (MOBILE) */
+/* Responsive */
 @media (max-width: 768px) {
-  .stack-container {
-    position: fixed;
-    bottom: 120px;
-    right: 15px;
+  .stack-grid {
+    gap: 1.5rem;
   }
-
-  .stack-container h2 {
-    font-size: 1rem;
-  }
-
-  .stack-icons {
-    font-size: 1.5rem;
-    max-width: 180px;
-    gap: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .stack-container {
-    bottom: 115px;
-    right: 10px;
-  }
-
-  .stack-container h2 {
-    font-size: 0.9rem;
-  }
-
-  .stack-icons {
-    font-size: 1.3rem;
-    max-width: 150px;
-    gap: 5px;
-  }
-}
-
-@media (max-width: 375px) {
-  .stack-container {
-    bottom: 110px;
-    right: 8px;
-  }
-
-  .stack-icons {
-    font-size: 1.2rem;
-    max-width: 130px;
+  
+  .stack-icon-wrapper {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
   }
 }

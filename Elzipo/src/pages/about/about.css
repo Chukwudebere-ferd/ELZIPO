@@ -1,191 +1,86 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
-:root {
-  --bg-gradient: #5225b6;
-  --text-color: #ffffff;
-  --button-border: #8e5fff;
-  --highlight-color: #caa9ff;
-  --font-heading: "Bebas Neue", sans-serif;
+.about-minimal {
+  padding: 10rem 0 5rem 0;
 }
 
-/* BANNER */
-.about-banner {
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
-  position: relative;
-  margin-top: 0;
+.about-header-minimal {
+  margin-bottom: 4rem;
 }
 
-.banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.9);
+.about-title-serif {
+  font-size: clamp(3rem, 10vw, 5rem);
+  margin-top: 0.5rem;
 }
 
-/* ABOUT CONTENT */
-.about-content {
-  width: 90%;
-  max-width: 1200px;
-  margin: -70px auto 80px auto;
-  text-align: center;
-  color: var(--text-color);
-  padding: 0 1rem;
-}
-
-/* PROFILE */
-.profile-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid var(--highlight-color);
-  object-fit: cover;
-  background-color: #000;
-  z-index: 5;
-  margin-bottom: 15px;
-}
-
-.profile-info h1 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  letter-spacing: 1px;
-  font-family: var(--font-heading);
-  margin-bottom: 10px;
-}
-
-.profile-info .bio {
-  max-width: 750px;
-  margin: 15px auto;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+.about-bio-minimal {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  color: var(--text-secondary);
   line-height: 1.6;
+  margin-bottom: 4rem;
 }
 
-/* SKILLS */
-.skills-section {
-  margin-top: 40px;
+.about-bio-minimal strong {
+  color: var(--text-main);
+  font-weight: 500;
 }
 
-.skills-section h2 {
-  font-size: clamp(1.5rem, 3vw, 1.8rem);
-  margin-bottom: 20px;
-  color: var(--highlight-color);
+.about-skills-minimal {
+  margin-bottom: 5rem;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 15px;
-  justify-items: center;
-}
-
-.skill {
+.skills-list-minimal {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  border: 1.5px solid var(--button-border);
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 200px;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.skill:hover {
-  background: var(--button-border);
-  color: #000;
-  transform: scale(1.05);
+.skills-list-minimal span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  position: relative;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .about-content {
-    width: 92%;
-  }
+.skills-list-minimal span::after {
+  content: " /";
+  margin-left: 1rem;
+  color: var(--text-muted);
+}
 
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  }
+.skills-list-minimal span:last-child::after {
+  content: "";
+}
+
+.about-footer-minimal {
+  border-top: 1px solid var(--border);
+  padding-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.social-links-minimal {
+  display: flex;
+  gap: 2rem;
+}
+
+.social-links-minimal a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.social-links-minimal a:hover {
+  color: var(--text-main);
 }
 
 @media (max-width: 768px) {
-  .about-banner {
-    height: 200px;
-    margin-top: 60px;
+  .about-footer-minimal {
+    flex-direction: column;
+    gap: 2rem;
   }
-
-  .about-content {
-    width: 95%;
-    margin-top: -50px;
-  }
-
-  .profile-img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-  }
-
-  .skill {
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-banner {
-    height: 180px;
-    margin-top: 65px;
-  }
-
-  .about-content {
-    width: 100%;
-    padding: 0 0.75rem;
-    margin-top: -40px;
-  }
-
-  .profile-img {
-    width: 100px;
-    height: 100px;
-    border: 3px solid var(--highlight-color);
-  }
-
-  .skills-section {
-    margin-top: 30px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-  }
-
-  .skill {
-    padding: 8px 10px;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .about-banner {
-    height: 160px;
-  }
-
-  .profile-img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .social-links-minimal {
+    gap: 1.5rem;
   }
 }

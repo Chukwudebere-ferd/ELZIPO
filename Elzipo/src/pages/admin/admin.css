@@ -1,12 +1,19 @@
 /* Admin Dashboard Styles */
 .admin-container {
+  /* Restore original variables to isolate from global changes */
+  --admin-bg: #5225b6;
+  --admin-text: #ffffff;
+  --admin-border: #8e5fff;
+  --admin-highlight: #caa9ff;
+  --admin-font: "Bebas Neue", sans-serif;
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
-  background: var(--bg-gradient, #5225b6);
-  color: var(--text-color, #ffffff);
-  font-family: var(--font-heading, "Bebas Neue", sans-serif);
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  font-family: var(--admin-font);
 }
 
 .admin-header {
@@ -17,13 +24,13 @@
   padding: 20px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  border: 2px solid var(--button-border, #8e5fff);
+  border: 2px solid var(--admin-border);
 }
 
 .admin-header h1 {
   font-size: 2em;
   margin: 0;
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
 }
 
 .admin-actions {
@@ -35,10 +42,10 @@
 .user-info {
   padding: 8px 15px;
   background: rgba(202, 169, 255, 0.1);
-  border: 1px solid var(--highlight-color, #caa9ff);
+  border: 1px solid var(--admin-highlight);
   border-radius: 5px;
   font-size: 0.9em;
-  color: var(--text-color, #ffffff);
+  color: var(--admin-text);
 }
 
 .message {
@@ -69,12 +76,12 @@
   border-radius: 10px;
   padding: 20px;
   overflow-x: auto;
-  border: 2px solid var(--button-border, #8e5fff);
+  border: 2px solid var(--admin-border);
 }
 
 .projects-table-container h2 {
   margin-top: 0;
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
 }
 
 .projects-table {
@@ -88,8 +95,8 @@
   padding: 15px;
   text-align: left;
   font-weight: 600;
-  border-bottom: 2px solid var(--button-border, #8e5fff);
-  color: var(--highlight-color, #caa9ff);
+  border-bottom: 2px solid var(--admin-border);
+  color: var(--admin-highlight);
 }
 
 .projects-table td {
@@ -102,13 +109,13 @@
 }
 
 .projects-table a {
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .projects-table a:hover {
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
   text-decoration: underline;
 }
 
@@ -128,15 +135,15 @@
 }
 
 .btn-primary {
-  background: var(--button-border, #8e5fff);
-  color: var(--text-color, #ffffff);
-  border: 2px solid var(--highlight-color, #caa9ff);
+  background: var(--admin-border);
+  color: var(--admin-text);
+  border: 2px solid var(--admin-highlight);
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(142, 95, 255, 0.4);
-  background: var(--highlight-color, #caa9ff);
+  background: var(--admin-highlight);
   color: #5225b6;
 }
 
@@ -157,16 +164,16 @@
 
 .btn-edit {
   background: rgba(202, 169, 255, 0.2);
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
   margin-right: 10px;
   padding: 5px 12px;
   font-size: 0.85em;
-  border: 1px solid var(--button-border, #8e5fff);
+  border: 1px solid var(--admin-border);
 }
 
 .btn-edit:hover {
-  background: var(--button-border, #8e5fff);
-  color: var(--text-color, #ffffff);
+  background: var(--admin-border);
+  color: var(--admin-text);
 }
 
 .btn-delete {
@@ -195,7 +202,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: var(--bg-gradient, #5225b6);
+  background: var(--admin-bg);
+  font-family: var(--admin-font);
 }
 
 .login-box {
@@ -205,12 +213,12 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 400px;
-  border: 2px solid var(--button-border, #8e5fff);
+  border: 2px solid var(--admin-border);
 }
 
 .login-box h1 {
   text-align: center;
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
   margin-bottom: 30px;
   font-size: 1.8em;
 }
@@ -270,7 +278,7 @@
 }
 
 .password-toggle:hover {
-  color: var(--highlight-color, #caa9ff);
+  color: var(--admin-highlight);
 }
 
 .form-group input:focus,

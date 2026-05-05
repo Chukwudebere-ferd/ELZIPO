@@ -126,48 +126,41 @@ const Projects = () => {
   }, []);
 
   return (
-    <>
-      <div className="page projects-page">
-        <div className="projects-page">
-          <h1 className="projects-title">My Projects</h1>
+    <div className="page projects-minimal main-container">
+      <header className="projects-header-minimal fade-in-up">
+        <p className="label">Selected Works</p>
+        <h1 className="projects-title-serif">Projects</h1>
+      </header>
 
-          {loading && <p className="loading-text">Loading projects...</p>}
+      {loading && <p className="muted">Loading projects...</p>}
 
-          {error && (
-            <p className="error-text">Error loading projects: {error}</p>
-          )}
-
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <div className="project-card" key={project.id}>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-img"
-                />
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-
-                <div className="resources">
-                  <h4>Resources Used:</h4>
-                  <ul>
-                    {Array.isArray(project.resources)
-                      ? project.resources.map((tool, index) => (
-                          <li key={index}>{tool}</li>
-                        ))
-                      : null}
-                  </ul>
-                </div>
-
-                <button onClick={() => window.open(project.link, "_blank")}>
-                  View
-                </button>
+      <div className="projects-list-minimal">
+        {projects.map((project, index) => (
+          <div 
+            className="project-row fade-in-up" 
+            key={project.id}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="project-row-content">
+              <div className="project-row-header">
+                <h2 className="project-row-title">{project.title}</h2>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-icon">
+                  ↗
+                </a>
               </div>
-            ))}
+              
+              <div className="project-row-meta">
+                <span className="label-small">{Array.isArray(project.resources) ? project.resources.join(" / ") : ""}</span>
+              </div>
+              
+              <p className="project-row-description">
+                {project.description}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
