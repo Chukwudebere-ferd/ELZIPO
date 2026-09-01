@@ -108,24 +108,22 @@ const AdminDashboard = () => {
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Description</th>
                 <th>Link</th>
-                <th>Resources</th>
-                <th>Actions</th>
+                <th>Description</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {projects.map((project) => (
                 <tr key={project.id}>
                   <td>{project.title}</td>
-                  <td>{project.description?.substring(0, 50)}...</td>
                   <td>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      View
+                      {new URL(project.link).hostname}
                     </a>
                   </td>
-                  <td>{project.resources?.join(', ')}</td>
-                  <td>
+                  <td>{project.description?.substring(0, 40)}...</td>
+                  <td style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>
                     <button
                       onClick={() => {
                         setEditingProject(project);

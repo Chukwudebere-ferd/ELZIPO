@@ -7,10 +7,7 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
     title: "",
     description: "",
     link: "",
-    resources: "",
   });
-  const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -20,9 +17,7 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
         title: project.title,
         description: project.description,
         link: project.link,
-        resources: project.resources?.join(", ") || "",
       });
-      setImagePreview(project.image);
     }
   }, [project]);
 
@@ -34,47 +29,26 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
     }));
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      // Validate form
       if (!formData.title || !formData.description || !formData.link) {
         throw new Error("Please fill in all required fields");
       }
 
-      if (!project && !imageFile) {
-        throw new Error("Please upload an image");
-      }
-
       const projectData = {
-        ...formData,
-        resources: formData.resources
-          .split(",")
-          .map((r) => r.trim())
-          .filter((r) => r),
+        title: formData.title,
+        description: formData.description,
+        link: formData.link,
       };
 
       if (project) {
-        // Update existing project
-        await updateProject(project.id, projectData, imageFile);
+        await updateProject(project.id, projectData);
       } else {
-        // Add new project
-        await addProject(projectData, imageFile);
+        await addProject(projectData);
       }
 
       onSuccess();
@@ -114,23 +88,8 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">
-              Description <span className="required">*</span>
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              placeholder="Project description"
-              rows="4"
-              required
-            />
-          </div>
-
-          <div className="form-group">
             <label htmlFor="link">
-              Project Link <span className="required">*</span>
+              Link <span className="required">*</span>
             </label>
             <input
               id="link"
@@ -144,36 +103,18 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="resources">
-              Resources/Technologies
-              <span className="hint">(comma-separated)</span>
+            <label htmlFor="description">
+              Description <span className="required">*</span>
             </label>
-            <input
-              id="resources"
-              type="text"
-              name="resources"
-              value={formData.resources}
+            <textarea
+              id="description"
+              name="description"
+              value={formData.description}
               onChange={handleInputChange}
-              placeholder="React, Firebase, Tailwind CSS"
+              placeholder="Short description"
+              rows="3"
+              required
             />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="image">
-              Project Image {!project && <span className="required">*</span>}
-            </label>
-            <input
-              id="image"
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              required={!project}
-            />
-            {imagePreview && (
-              <div className="image-preview">
-                <img src={imagePreview} alt="Preview" />
-              </div>
-            )}
           </div>
 
           <div className="form-actions">
@@ -181,7 +122,7 @@ const ProjectForm = ({ project, onClose, onSuccess }) => {
               Cancel
             </button>
             <button type="submit" disabled={loading} className="btn-primary">
-              {loading ? "Saving..." : "Save Project"}
+              {loading ? "Saving..." : "Save"}
             </button>
           </div>
         </form>

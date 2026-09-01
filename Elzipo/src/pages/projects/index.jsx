@@ -2,121 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./projects.css";
 import { getAllProjects } from "../../services/projectService";
 
-// Fallback data for initial load or if Firebase fails
-const projectsData = [
-  {
-    id: 1,
-    title: "COOU Connect",
-    image: "https://i.postimg.cc/LssGNnKV/Screenshot-2025-10-10-014247.png",
-    description:
-      "A dynamic social networking platform designed exclusively for the students (COOU). It serves as a central hub for students to  share updates, and interact in a familiar campus environment.",
-    link: "https://www.coouconnect.live",
-    resources: ["React", "Firebase", "CSS3", "typescript", "tailwind"],
-  },
-  {
-    id: 2,
-    title: "Schoenstatt Blog",
-    image: "https://i.postimg.cc/Sss1758k/Screenshot-2025-10-10-013900.png",
-    description:
-      "This global site offers extensive content, including a 'Youth' section that highlights international activities, events, and initiatives.",
-    link: "https://www.schoenstattvictoriousyouth.com",
-    resources: [
-      "React",
-      "Blogger API",
-      "Firebase",
-      "Custom CSS",
-      "mongodb",
-      "typescript",
-    ],
-  },
-  {
-    id: 3,
-    title: "VitaleanersFX",
-    image: "https://i.postimg.cc/sx0g4mgC/Screenshot-2025-11-30-035252.png",
-    description:
-      "A smart crypto dashboard where users can sign in to view live prices, trade, and track profits in real-time with simulated authentication.",
-    link: "https://vitalearnerspro.vercel.app/",
-    resources: [
-      "React",
-      "Chart.js",
-      "supabase",
-      "tailwind",
-      "django",
-      "typescript",
-    ],
-  },
-  {
-    id: 4,
-    title: "UNIKFITS",
-    image: "https://i.postimg.cc/NfyV0Dmg/Screenshot-2025-11-30-033726.png",
-    description:
-      "UNIKFITS is an e-commerce platform that offers a wide range of clothing and accessories. It features user authentication, product browsing, and a secure checkout process.",
-    link: "https://unikfits.vercel.app",
-    resources: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "CSS3",
-      "typescript",
-      "tailwind",
-    ],
-  },
-
-  {
-    id: 5,
-    title: "catholic insight andriod app",
-    image: "https://i.postimg.cc/wvn6tvfX/Screenshot-2025-11-30-035938.png",
-    description:
-      "An android app that provides daily catholic insights, prayers, and reflections to help users deepen their faith and stay connected with the catholic community.",
-    link: "https://catholic-insight-webstore.vercel.app/",
-    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite"],
-  },
-
-  {
-    id: 6,
-    title: "schoenstatt andriod app",
-    image: "https://i.postimg.cc/VLR3pvqD/Screenshot-2025-11-30-040314.png",
-    description:
-      "An andriod app that connects schoenstatt  worldwide, fostering community and spiritual growth.",
-    link: "https://schoenstatt-app-store.vercel.app/",
-    resources: ["flutter", "Firebase", "Redux", "Dart", "SQLite", "REST API"],
-  },
-
-  {
-    id: 7,
-    title: "ebanner",
-    image: "https://i.postimg.cc/j2jpmwms/Screenshot-2025-12-19-025149.png",
-    description:
-      "This project is a web application that allows users to generate personalized portfolio banners.",
-    link: "https://ebanner.vercel.app/",
-    resources: ["react", "nodejs/express", "REST API", "puter"],
-  },
-];
-
 const Projects = () => {
-  const [projects, setProjects] = useState(projectsData);
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
         const firebaseProjects = await getAllProjects();
-        // Merge Firebase projects with static fallback data (Firebase first, then fallback)
         if (firebaseProjects && firebaseProjects.length > 0) {
-          // Show Firebase projects + keep fallback data that don't have Firebase versions
-          setProjects([...firebaseProjects, ...projectsData]);
+          setProjects(firebaseProjects);
         } else {
-          // No Firebase projects, use fallback
-          setProjects(projectsData);
+          setProjects([]);
         }
       } catch (err) {
         console.error("Error loading projects from Firebase:", err);
-        // Silently fail and use fallback data
-        setProjects(projectsData);
-        setError(null);
+        setProjects([]);
       } finally {
         setLoading(false);
       }
