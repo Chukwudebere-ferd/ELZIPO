@@ -5,13 +5,9 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="nav-header">
-      <nav className="nav-minimal main-container">
-        <div className="nav-links-minimal">
-          <Link to="/" className={location.pathname === "/" ? "active" : ""}>HOME</Link>
-          <Link to="/projects" className={location.pathname === "/projects" ? "active" : ""}>PROJECTS</Link>
-          <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>CONTACT</Link>
-        </div>
+    <header className="site-nav">
+      <nav className="site-nav__links" aria-label="Main navigation">
+        <Link to="/" className="site-nav__link" aria-current={location.pathname === "/" ? "page" : undefined}>Home</Link>
       </nav>
     </header>
   );

@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react'
 import { getAllProjects } from '../services/projectService'
 import NowPlaying from './NowPlaying'
+import ThemeToggle from './ThemeToggle'
 import '../styles/hero.css'
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+    <path d="M4 12 12 4M4 4h8v8" />
+  </svg>
+);
 
 const Hero = () => {
   const [projects, setProjects] = useState([])
@@ -24,59 +31,81 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="page main-container">
-      <header className="hero-header fade-in-up">
-        <h1 className="hero-name">Elzipo</h1>
-        <p className="hero-subtitle">Software engineer</p>
-        <p className="hero-bio">
-          Software engineer. Building exceptional digital experiences.
-        </p>
-        <div className="hero-socials">
-          <a href="https://github.com/Chukwudebere-ferd" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span className="dot">·</span>
-          <a href="mailto:elzipo106@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
-          <span className="dot">·</span>
-          <a href="https://x.com/elzipoferd" target="_blank" rel="noopener noreferrer">Twitter</a>
-        </div>
-        <NowPlaying />
-      </header>
+    <>
+      <a href="#main" className="skip-link">Skip to content</a>
+      <div className="site-shell">
+        <nav className="site-nav" aria-label="Main navigation">
+          <div className="site-nav__links">
+            <a href="/" className="site-nav__link" aria-current="page">Home</a>
+            <ThemeToggle />
+          </div>
+        </nav>
+        <main id="main" tabIndex={-1}>
+          <header className="intro">
+            <h1>Elzipo<span className="text-accent">.</span></h1>
+            <p className="intro__bio">
+              Software engineer. I make things for the web and beyond.
+            </p>
+            <div className="social-links" aria-label="Find me online">
+              <a href="https://github.com/Chukwudebere-ferd" target="_blank" rel="noreferrer">GitHub <ArrowIcon /></a>
+              <a href="mailto:elzipo106@gmail.com" target="_blank" rel="noreferrer">Email <ArrowIcon /></a>
+              <a href="https://x.com/elzipoferd" target="_blank" rel="noreferrer">Twitter <ArrowIcon /></a>
+            </div>
+            <div className="intro__music">
+              <NowPlaying />
+            </div>
+          </header>
 
-      <section className="projects-section fade-in-up" style={{ animationDelay: '0.1s' }}>
-        <p className="label">Projects</p>
-        {loading && <p className="muted">Loading projects...</p>}
-        <div className="projects-list">
-          {projects.map((project, index) => {
-            const hostname = new URL(project.link).hostname;
-            return (
-              <a
-                key={project.id}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-row"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="project-row-left">
-                  <div className="project-row-header">
-                    <span className="project-row-title">{project.title}</span>
-                    <span className="project-row-domain">{hostname}</span>
-                    <span className="project-row-arrow">↗</span>
-                  </div>
-                  <p className="project-row-description">{project.description}</p>
-                </div>
-              </a>
-            );
-          })}
-          {!loading && projects.length === 0 && (
-            <p className="muted">No projects yet.</p>
-          )}
-        </div>
-      </section>
-      
-      <footer className="page-footer fade-in-up" style={{ animationDelay: '0.2s' }}>
-        <p className="muted">&copy; {new Date().getFullYear()} ELZIPO</p>
-      </footer>
-    </section>
+          <section className="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">A little about me</h2>
+            <div className="about__copy">
+              <p>
+                I write code for the web and beyond — building a lot of stuff
+                along the way.
+              </p>
+              <p>
+                Off screen, I like quiet moments on the internet and time
+                spent offline.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="projects-heading">
+            <div className="projects-heading">
+              <h2 id="projects-heading">Projects</h2>
+            </div>
+            {loading && <p className="muted" style={{ fontSize: 13, marginTop: 16 }}>Loading projects…</p>}
+            <ul className="projects-list">
+              {projects.map((project) => (
+                <li key={project.id}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <span className="project-link__name">{project.title}</span>
+                    <span className="project-link__description">{project.description}</span>
+                    <svg className="project-link__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+                      <path d="M4 12 12 4M4 4h8v8" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+              {!loading && projects.length === 0 && (
+                <li style={{ paddingBlock: 22, fontSize: 13, color: 'rgb(var(--color-muted))' }}>
+                  No projects yet.
+                </li>
+              )}
+            </ul>
+          </section>
+
+          <footer className="site-footer">
+            <span>© MMXXVI Elzipo</span>
+          </footer>
+        </main>
+      </div>
+    </>
   )
 }
 

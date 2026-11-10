@@ -1,54 +1,77 @@
-.nav-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 3rem 0;
-  z-index: 100;
-}
-
-.nav-minimal {
+.site-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-bottom: 88px;
+  font-size: 13px;
 }
 
-.nav-brand {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  color: var(--text-main);
-  opacity: 0.9;
-}
-
-.nav-links-minimal {
+.site-nav__links {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 24px;
 }
 
-.nav-links-minimal a {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
+.site-nav__link {
+  position: relative;
+  padding-block: 10px;
+  color: rgb(var(--color-muted));
+  transition: color 0.15s ease;
 }
 
-.nav-links-minimal a:hover,
-.nav-links-minimal a.active {
-  color: var(--text-main);
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: rgb(var(--color-ink));
 }
 
-@media (max-width: 600px) {
-  .nav-header {
-    padding: 2rem 0;
+.site-nav__link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid rgb(var(--color-line));
+  border-radius: 999px;
+  background: transparent;
+  color: rgb(var(--color-muted));
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: rgb(var(--color-ink));
+  border-color: rgb(var(--color-faint) / 0.6);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle svg {
+  display: block;
+  width: 13px;
+  height: 13px;
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    margin-bottom: 64px;
   }
-  
-  .nav-links-minimal {
-    gap: 1rem;
-  }
-  
-  .nav-links-minimal a {
-    font-size: 0.65rem;
+
+  .site-nav__links {
+    gap: 18px;
   }
 }

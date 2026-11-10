@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/ZYdycF1M/Elzipo-pp.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ELZIPO</title>
+    <meta name="theme-color" content="#fdfcfa" />
+    <meta name="description" content="Elzipo — Software engineer" />
+    <title>Elzipo — Software engineer</title>
+    <script>
+      // Resolve the theme before first paint so dark mode never flashes light.
+      (function () {
+        try {
+          var stored = localStorage.getItem("elzipo-theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#171716" : "#fdfcfa");
+        } catch (e) {}
+      })();
+    </script>
      <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"

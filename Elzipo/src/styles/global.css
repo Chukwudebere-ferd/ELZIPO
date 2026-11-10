@@ -1,21 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+@font-face {
+  font-family: Nunito;
+  src: url(https://akinkunmi.dev/font/nunito-latin.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
 
 :root {
-  /* Colors - High Contrast Minimalist */
-  --bg-dark: #000000;
-  --text-main: #F5F5F5;
-  --text-secondary: #A3A3A3;
-  --text-muted: #525252;
-  --accent: #FFFFFF;
-  --border: rgba(255, 255, 255, 0.1);
-  
-  /* Fonts */
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Instrument Serif', serif;
-  
-  /* Spacing */
-  --container-width: 720px;
-  --section-padding: 8rem 0;
+  color-scheme: light;
+  --color-paper: 253 252 250;
+  --color-ink: 44 44 41;
+  --color-muted: 107 106 101;
+  --color-faint: 119 118 111;
+  --color-line: 233 231 226;
+  --color-surface: 245 244 240;
+  --color-accent: 71 106 87;
+  --color-hover: 85 85 85;
+  --color-selection: 220 232 220;
+  --overlay-rgb: 44 44 41;
+  --overlay-alpha: 0.2;
+  --shadow-dialog: 0 20px 70px rgba(44, 44, 41, 0.12);
+  --bg-dark: rgb(var(--color-paper));
+  --text-main: rgb(var(--color-ink));
+  --text-secondary: rgb(var(--color-muted));
+  --text-muted: rgb(var(--color-faint));
+  --accent: rgb(var(--color-accent));
+  --border: rgb(var(--color-line));
+  --font-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --container-width: 688px;
+}
+
+/* Dark theme — same warm palette, inverted. Opt-in via the toggle, or by
+   system preference when the visitor has not chosen a theme yet. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: 23 23 22;
+  --color-ink: 237 236 231;
+  --color-muted: 163 162 156;
+  --color-faint: 138 137 132;
+  --color-line: 47 47 45;
+  --color-surface: 32 32 30;
+  --color-accent: 138 178 153;
+  --color-hover: 255 255 255;
+  --color-selection: 46 62 54;
+  --overlay-rgb: 0 0 0;
+  --overlay-alpha: 0.65;
+  --shadow-dialog: 0 20px 70px rgba(0, 0, 0, 0.55);
 }
 
 * {
@@ -26,52 +57,76 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: rgb(var(--color-line)) rgb(var(--color-paper));
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  font-family: var(--font-body);
-  line-height: 1.6;
+  margin: 0;
+  font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
+  background-color: rgb(var(--color-paper));
+  color: rgb(var(--color-ink));
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background-color: rgb(var(--color-selection));
+  color: rgb(var(--color-ink));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+.site-shell {
+  width: 100%;
+  max-width: 688px;
+  margin-inline: auto;
+  padding: 40px 28px 32px;
+}
+
+.site-shell--wide {
+  max-width: 1152px;
 }
 
 .main-container {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: 688px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  line-height: 1.1;
-  color: var(--text-main);
+  font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  color: rgb(var(--color-ink));
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease;
 }
 
-/* Typography Utilities */
 .label {
-  font-family: var(--font-body);
+  font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: rgb(var(--color-muted));
 }
 
 .muted {
-  color: var(--text-secondary);
+  color: rgb(var(--color-muted));
 }
 
-/* Animation */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -79,4 +134,23 @@ a {
 
 .fade-in-up {
   animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 480px) {
+  .site-shell {
+    padding: 24px 24px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
